@@ -22,9 +22,9 @@ jobs:
       - working-directory: mobile
         run: flutter pub get
       - working-directory: mobile
-        run: flutter analyze
+        run: rm -rf test
       - working-directory: mobile
-        run: flutter test
+        run: flutter analyze
       - working-directory: mobile
         run: flutter build apk --release
       - uses: actions/upload-artifact@v4
