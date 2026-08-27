@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '永兴涂料Android工程-1.1.1.zip'
+      - '永兴涂料Android工程-1.1.2.zip'
       - '.github/workflows/build-apk.yml'
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: unzip -q '永兴涂料Android工程-1.1.1.zip' -d source
+      - run: unzip -q '永兴涂料Android工程-1.1.2.zip' -d source
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.5'
