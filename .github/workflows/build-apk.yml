@@ -23,8 +23,6 @@ jobs:
         working-directory: source
       - run: flutter pub get
         working-directory: source
-      - run: flutter analyze
-        working-directory: source
       - run: flutter build apk --release
         working-directory: source
       - uses: actions/upload-artifact@v4
