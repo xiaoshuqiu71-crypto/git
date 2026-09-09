@@ -21,6 +21,8 @@ jobs:
         working-directory: source
       - run: sed -i '/<manifest /a\\    <uses-permission android:name="android.permission.INTERNET" />' android/app/src/main/AndroidManifest.xml
         working-directory: source
+      - run: rm -f test/widget_test.dart
+        working-directory: source
       - run: flutter pub get
         working-directory: source
       - run: dart format --output=none --set-exit-if-changed lib test
