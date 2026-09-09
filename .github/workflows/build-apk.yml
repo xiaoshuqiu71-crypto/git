@@ -35,5 +35,9 @@ jobs:
         working-directory: source
       - uses: actions/upload-artifact@v4
         with:
+          name: yongxing-coatings-android-1.3.0-visual-check
+          path: source/build/visual/*.png
+      - uses: actions/upload-artifact@v4
+        with:
           name: yongxing-coatings-android-1.3.0
           path: source/build/app/outputs/flutter-apk/app-release.apk
