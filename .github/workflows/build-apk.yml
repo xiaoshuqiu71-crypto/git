@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '永兴涂料Android工程-1.1.2.zip'
+      - '永兴涂料Android工程-1.2.0.zip'
       - '.github/workflows/build-apk.yml'
 
 jobs:
@@ -12,12 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: unzip -q '永兴涂料Android工程-1.1.2.zip' -d source
+      - run: unzip -q '永兴涂料Android工程-1.2.0.zip' -d source
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.5'
           channel: stable
       - run: flutter create . --platforms=android --project-name=yongxing_coatings_mobile
+        working-directory: source
+      - run: sed -i '/<manifest /a\    <uses-permission android:name="android.permission.INTERNET" />' android/app/src/main/AndroidManifest.xml
         working-directory: source
       - run: rm -rf test
         working-directory: source
@@ -27,5 +29,5 @@ jobs:
         working-directory: source
       - uses: actions/upload-artifact@v4
         with:
-          name: yongxing-coatings-android
+          name: yongxing-coatings-android-1.2.0
           path: source/build/app/outputs/flutter-apk/app-release.apk
